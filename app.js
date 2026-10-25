@@ -44,4 +44,42 @@
       }
     });
   });
+
+  const fitTargets = document.querySelectorAll('h1, h2, .hero__lead > span, .hero__lead > strong, .template-layout h3');
+  let fitFrame = 0;
+
+  const fitSingleLine = () => {
+    fitTargets.forEach((element) => {
+      element.classList.add('fit-line');
+      element.dataset.fitLine = '';
+      element.style.removeProperty('font-size');
+      const base = parseFloat(getComputedStyle(element).fontSize);
+      const minimum = element.matches('h1') ? 28 : element.matches('h2') ? 16 : 14;
+      const available = element.clientWidth;
+      const needed = element.scrollWidth;
+      if (available > 0 && needed > available) {
+        element.style.fontSize = `${Math.max(minimum, base * available / needed * 0.985)}px`;
+      }
+    });
+  };
+
+  const scheduleFit = () => {
+    window.cancelAnimationFrame(fitFrame);
+    fitFrame = window.requestAnimationFrame(fitSingleLine);
+  };
+
+  scheduleFit();
+  if (document.fonts?.ready) document.fonts.ready.then(scheduleFit);
+  if ('ResizeObserver' in window) {
+    let observedWidth = 0;
+    const resizeObserver = new ResizeObserver((entries) => {
+      const nextWidth = Math.round(entries[0]?.contentRect.width ?? 0);
+      if (nextWidth === observedWidth) return;
+      observedWidth = nextWidth;
+      scheduleFit();
+    });
+    resizeObserver.observe(document.documentElement);
+  } else {
+    window.addEventListener('resize', scheduleFit, { passive: true });
+  }
 })();
