@@ -54,7 +54,7 @@
       element.dataset.fitLine = '';
       element.style.removeProperty('font-size');
       const base = parseFloat(getComputedStyle(element).fontSize);
-      const minimum = element.matches('h1') ? 28 : element.matches('h2') ? 16 : 14;
+      const minimum = element.matches('h1') ? 32 : element.matches('h2') ? 22 : element.matches('.template-layout h3') ? 18 : 18;
       const available = element.clientWidth;
       const needed = element.scrollWidth;
       if (available > 0 && needed > available) {

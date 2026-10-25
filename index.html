@@ -18,7 +18,7 @@
     <div class="hero__content wrap">
       <p class="eyebrow">Field guide / 2026</p>
       <h1 class="fit-line" data-fit-line><span class="phrase">AI駆動開発の</span><span class="phrase">要諦</span></h1>
-      <p class="hero__lead"><span class="fit-line" data-fit-line>人が決める。AIが繰り返す。</span><br><strong class="fit-line" data-fit-line>実装の速さを、検証で仕事の成果に変える。</strong></p>
+      <p class="hero__lead"><span class="fit-line" data-fit-line>人が決める。AIが繰り返す。</span><br><strong class="fit-line" data-fit-line>検証で、実装を成果に変える。</strong></p>
       <p class="hero__summary">AI駆動開発の要諦は、人が目的・制約・完了条件を決め、AIが実装と検証を繰り返せる環境をつくることです。コード生成にとどまらず、要件整理から調査、実装、テスト、レビューまでをつなげます。業務判断と変更受入の責任は、人が持ちます。</p>
       <div class="hero__meta"><span>公開情報基準日</span><time datetime="2026-10-26">2026-10-26</time></div>
     </div>
@@ -34,7 +34,7 @@
     </nav>
 
     <section class="section wrap" id="workflow">
-      <div class="section-heading"><p class="kicker">Operating model</p><h2><span class="phrase">実装の前後を、</span><span class="phrase">一本の</span><span class="phrase">ループにする</span></h2></div>
+      <div class="section-heading"><p class="kicker">Operating model</p><h2>人とAIの開発ループ</h2></div>
       <div class="workflow" aria-label="人が条件を定義し、AIが調査からレビューまでを反復し、人が受入を判断する工程">
         <div class="workflow__human"><span>HUMAN / 人が定義</span><b>目的・制約・受入条件</b><small>AIが何を作り、どこまで進めるかを決める</small></div>
         <div class="workflow__handoff" aria-hidden="true">定義を渡す →</div>
@@ -45,7 +45,7 @@
     </section>
 
     <section class="section section--ink" id="principles">
-      <div class="wrap"><div class="section-heading"><p class="kicker">Five principles</p><h2><span class="phrase">検証できる</span><span class="phrase">仕事に変える</span><span class="phrase">5原則</span></h2></div>
+      <div class="wrap"><div class="section-heading"><p class="kicker">Five principles</p><h2>検証できる仕事の5原則</h2></div>
         <ol class="principles">
           <li><span>01</span><div><h3>完了条件</h3><p>入力・出力・例外時の動作を明文化する。</p></div></li>
           <li><span>02</span><div><h3>必要な文脈</h3><p>関連コード、仕様、実行コマンド、失敗ログを渡す。</p></div></li>
@@ -58,7 +58,7 @@
     </section>
 
     <section class="section wrap" id="settings">
-      <div class="section-heading"><p class="kicker">Three settings</p><h2><span class="phrase">指示・権限・検証を</span><span class="phrase">整える3設定</span></h2></div>
+      <div class="section-heading"><p class="kicker">Three settings</p><h2>指示・権限・検証の3層</h2></div>
       <figure class="control-stack" aria-labelledby="control-stack-caption"><div class="control-stack__item control-stack__item--instruction"><span>01 / 指示</span><strong>AGENTS.md</strong><p>どう進めるか</p></div><div class="control-stack__item control-stack__item--permission"><span>02 / 権限</span><strong>sandbox・承認</strong><p>何にアクセスできるか</p></div><div class="control-stack__item control-stack__item--verification"><span>03 / 検証</span><strong>CI・画面確認</strong><p>何をもって完了か</p></div><figcaption id="control-stack-caption">3層は別の役割を担います。AGENTS.mdの指示は、sandboxや承認による技術的な権限制御を代替しません。</figcaption></figure>
       <article class="setting"><header><span>SETTING 01</span><h3>AGENTS.md <small>— 行動のルール</small></h3></header><div class="setting__body"><div><p>グローバル側と案件側の指示を読ませ、繰り返す案件ルールと、実際に動く検証コマンドを置きます。長い背景や一度限りの手順は別資料へ分けます。</p><p class="note">以下はJavaScript / TypeScript案件の例です。コマンドは案件に合わせて変えてください。</p><a class="source" href="https://learn.chatgpt.com/docs/agent-configuration/agents-md" rel="noopener noreferrer">公式ドキュメント <span aria-hidden="true">↗</span></a></div><div class="code-shell"><button class="copy-button" type="button" data-copy="agents-code" aria-label="AGENTS.mdの例をコピー"><span>コピー</span></button><pre><code id="agents-code"># 作業ルール
 - 変更前に関連コードと既存テストを確認する。
@@ -86,7 +86,7 @@ network_access = false</code></pre></div></div></article>
       <article class="setting setting--compact"><header><span>SETTING 03</span><h3>CI <small>— 継続的な検証</small></h3></header><div class="setting__body setting__body--single"><p>GitHub Actionsなどで型検査、静的検査、テスト、ビルドを実行し、必要な検査の成功をマージ条件にします。UIは実画面、外部連携は応答と保存結果を確認します。認証、課金、削除、権限変更は、人も差分と動作を確認します。</p></div></article>
     </section>
 
-    <section class="section section--soft" id="request"><div class="wrap"><div class="section-heading"><p class="kicker">Request template</p><h2>依頼文に「正解の物差し」を入れる</h2></div><div class="template-layout"><div class="code-shell code-shell--light"><button class="copy-button" type="button" data-copy="request-code" aria-label="依頼テンプレートをコピー"><span>コピー</span></button><pre><code id="request-code">目的: 顧客一覧から会社名で検索できるようにする。
+    <section class="section section--soft" id="request"><div class="wrap"><div class="section-heading"><p class="kicker">Request template</p><h2>正解が伝わる依頼文</h2></div><div class="template-layout"><div class="code-shell code-shell--light"><button class="copy-button" type="button" data-copy="request-code" aria-label="依頼テンプレートをコピー"><span>コピー</span></button><pre><code id="request-code">目的: 顧客一覧から会社名で検索できるようにする。
 
 対象: 顧客一覧画面と検索API。
 
@@ -98,17 +98,17 @@ network_access = false</code></pre></div></div></article>
 
 進め方: 関連実装を調べ、影響範囲を示してから実装する。必要なテストと画面確認を行い、不具合があれば修正する。最後に変更内容、検証結果、未確認事項を報告する。
 
-制約: 既存の認証方式を保持する。本番デプロイは今回の対象外。</code></pre></div><aside><p class="aside-label">POINT</p><h3>AI自身が正誤を確かめられるか</h3><p>受入条件には、正常系だけでなく、空欄、0件、権限違反まで含めます。</p></aside></div></div></section>
+制約: 既存の認証方式を保持する。本番デプロイは今回の対象外。</code></pre></div><aside><p class="aside-label">POINT</p><h3>正誤を確かめる基準</h3><p>受入条件には、正常系だけでなく、空欄、0件、権限違反まで含めます。</p></aside></div></div></section>
 
-    <section class="section wrap" id="cautions"><div class="section-heading"><p class="kicker">Six cautions</p><h2><span class="phrase">自動化しても、</span><span class="phrase">手放しにしない</span></h2></div><ol class="cautions"><li><span>1</span><p><strong>一度に大きく作らせない。</strong>1機能ずつ実装し、差分と結果を確かめる。</p></li><li><span>2</span><p><strong>業務ルールと照合する。</strong>実装とテストが同じ誤解に基づけば、テストは通ってしまう。既知の正解と比べる。</p></li><li><span>3</span><p><strong>差分で逃げ道を確かめる。</strong>テストの削除、エラーの握りつぶし、型チェックの回避を確認する。</p></li><li><span>4</span><p><strong><code>.gitignore</code> を読取り禁止と考えない。</strong>これはGitへの登録を防ぐ設定であり、AIやツールからの読取りを禁止する仕組みではない。</p></li><li><span>5</span><p><strong>並列作業は所有範囲を分ける。</strong>担当ファイルや作業用のチェックアウトを分け、競合を防ぐ。</p></li><li><span>6</span><p><strong>生成速度だけで測らない。</strong>要件整理、レビュー、修正を含む時間と、リリース後の不具合も測定する。</p></li></ol></section>
+    <section class="section wrap" id="cautions"><div class="section-heading"><p class="kicker">Six cautions</p><h2>任せる前の6つの注意点</h2></div><ol class="cautions"><li><span>1</span><p><strong>一度に大きく作らせない。</strong>1機能ずつ実装し、差分と結果を確かめる。</p></li><li><span>2</span><p><strong>業務ルールと照合する。</strong>実装とテストが同じ誤解に基づけば、テストは通ってしまう。既知の正解と比べる。</p></li><li><span>3</span><p><strong>差分で逃げ道を確かめる。</strong>テストの削除、エラーの握りつぶし、型チェックの回避を確認する。</p></li><li><span>4</span><p><strong><code>.gitignore</code> を読取り禁止と考えない。</strong>これはGitへの登録を防ぐ設定であり、AIやツールからの読取りを禁止する仕組みではない。</p></li><li><span>5</span><p><strong>並列作業は所有範囲を分ける。</strong>担当ファイルや作業用のチェックアウトを分け、競合を防ぐ。</p></li><li><span>6</span><p><strong>生成速度だけで測らない。</strong>要件整理、レビュー、修正を含む時間と、リリース後の不具合も測定する。</p></li></ol></section>
 
-    <section class="section section--evidence" id="evidence"><div class="wrap"><div class="section-heading"><p class="kicker">Public evidence</p><h2><span class="phrase">成果は、</span><span class="phrase">適用条件と</span><span class="phrase">セットで読む</span></h2></div><div class="evidence-grid">
+    <section class="section section--evidence" id="evidence"><div class="wrap"><div class="section-heading"><p class="kicker">Public evidence</p><h2>成果と条件をセットで読む</h2></div><div class="evidence-grid">
       <article><p class="evidence-tag">CASE STUDY</p><h3>楽天× Claude Code</h3><p class="evidence-number">約7時間</p><p>vLLMの特定機能を、AIが約7時間にわたって自律的に実装。人は途中で指示を与えました。</p><p class="caveat">ベンダー掲載の導入事例であり、すべての開発での再現を保証するものではありません。</p><a class="source" href="https://www.anthropic.com/customers/rakuten" rel="noopener noreferrer">出典を読む <span aria-hidden="true">↗</span></a></article>
       <article><p class="evidence-tag">FIELD EXPERIMENTS</p><h3>Microsoftなど3社</h3><p class="evidence-number">+26.08%</p><p>4,867人の統合分析で、AI支援を利用できる群は完了タスク数が26.08%増えました。</p><figure class="mini-chart" aria-label="完了タスク数をAI支援なし100とした相対値。AI支援ありは126.08。"><figcaption>完了タスク数 <small>AI支援なし=100に換算</small></figcaption><div class="bar-row"><span>AI支援なし</span><div class="bar-track"><i style="--value:71.4286%"></i></div><b>100</b></div><div class="bar-row bar-row--accent"><span>AI支援あり</span><div class="bar-track"><i style="--value:90.0571%"></i></div><b>126.08</b></div><p class="chart-scale">0<span>70</span><span>140</span></p><p class="chart-note">実験内の相対値へ換算した図です。</p></figure><p class="caveat">コード補完型の結果です。開発全体の時間が26%減ったという意味ではありません。</p><a class="source" href="https://www.microsoft.com/en-us/research/publication/the-effects-of-generative-ai-on-high-skilled-work-evidence-from-three-field-experiments-with-software-developers/" rel="noopener noreferrer">出典を読む <span aria-hidden="true">↗</span></a></article>
       <article><p class="evidence-tag">CONTROLLED STUDY</p><h3>METR熟練OSS開発者</h3><p class="evidence-number">+19%</p><p>2025年前半の条件では、AIを利用できる場合、所要時間が19%増えました。</p><figure class="mini-chart" aria-label="所要時間をAI利用不可100とした相対値。AI利用可能は119。"><figcaption>所要時間 <small>AI利用不可=100に換算</small></figcaption><div class="bar-row"><span>AI利用不可</span><div class="bar-track"><i style="--value:71.4286%"></i></div><b>100</b></div><div class="bar-row bar-row--warning"><span>AI利用可能</span><div class="bar-track"><i style="--value:85%"></i></div><b>119</b></div><p class="chart-scale">0<span>70</span><span>140</span></p><p class="chart-note">実験内の相対値へ換算した図です。</p></figure><p class="caveat">特定の開発者、課題、当時のツールにおける結果で、現在のAI全般には一般化できません。2026年の追跡研究は、参加者選択の偏りなどにより、現在の効果の大きさは推定が難しいと説明しています。</p><a class="source" href="https://metr.org/blog/2026-02-24-uplift-update/" rel="noopener noreferrer">出典を読む <span aria-hidden="true">↗</span></a></article>
     </div></div></section>
 
-    <section class="section wrap" id="start"><div class="start"><div><p class="kicker">First step</p><h2>入出力を照合できる、小さな案件から</h2><p>実施済みの事例ではなく、業務導入の候補です。まずは正解を照合しやすい機能を選びます。</p></div><ul><li>議事録から宿題候補を抽出する</li><li>提案トラッキングの重複登録を防ぐ</li><li>企業調査の結果を指定JSONへ変換する</li></ul></div><div class="start-steps"><p><span>1</span>各案件で実際に動く検証コマンドを整える</p><p><span>2</span>代表的な入力と期待結果を用意する</p><p><span>3</span>小案件で着手し、受入時間・手戻り・レビュー時間・利用料を記録する</p><p><span>4</span>結果に基づき、AIに任せる範囲を判断する</p></div></section>
+    <section class="section wrap" id="start"><div class="start"><div><p class="kicker">First step</p><h2>小さく始めて、結果で判断</h2><p>実施済みの事例ではなく、業務導入の候補です。まずは正解を照合しやすい機能を選びます。</p></div><ul><li>議事録から宿題候補を抽出する</li><li>提案トラッキングの重複登録を防ぐ</li><li>企業調査の結果を指定JSONへ変換する</li></ul></div><div class="start-steps"><p><span>1</span>各案件で実際に動く検証コマンドを整える</p><p><span>2</span>代表的な入力と期待結果を用意する</p><p><span>3</span>小案件で着手し、受入時間・手戻り・レビュー時間・利用料を記録する</p><p><span>4</span>結果に基づき、AIに任せる範囲を判断する</p></div></section>
   </main>
   <footer><div class="wrap"><p><strong>AI駆動開発</strong> — 人が決め、AIが繰り返し、結果で確かめる。</p><a href="#top">ページ上部へ</a></div></footer>
   <div class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
